@@ -1,0 +1,1774 @@
+{
+ "schema": "ugk-invariant-taxonomy/1",
+ "standing": "Navigation layer, not law. The cited invariant/ADR/gate/codex/release/file sources are authority.",
+ "generated_from": "INVARIANT_TAXONOMY.json",
+ "last_verified_release": "r169",
+ "families": [
+  "adversarial-resistance",
+  "amendment-governance",
+  "audit-observability",
+  "configuration-constraint",
+  "content-addressed-artifact",
+  "effect-truthfulness",
+  "frame-governance",
+  "identity-and-vocabulary",
+  "jurisdiction-projection",
+  "namespace-authority",
+  "receipt-chain-integrity",
+  "terminal-outcome"
+ ],
+ "records": [
+  {
+   "id": "ADV-S-01",
+   "public_label": "Adversarial rug-pull detection",
+   "semantic_family": "adversarial-resistance",
+   "subsystem": "ADV",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "rugpull_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:ADV-S-01",
+    "file:ugk/invariants.py",
+    "gate:rugpull_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Four adversarial rug-pulls are each detected: (1) CHC field tamper changes semantic_hash, (2) GOVERNANCE_OPS runtime tamper raises UndeclaredOp, (3) Grundnorm file tamper breaks grundnorm_readonly_gat"
+  },
+  {
+   "id": "AMD-S-01",
+   "public_label": "Amendment record governance (AMD-S-01)",
+   "semantic_family": "amendment-governance",
+   "subsystem": "AMD",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "amendment_record_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase9",
+   "source_refs": [
+    "invariant:AMD-S-01",
+    "file:ugk/invariants.py",
+    "gate:amendment_record_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "AmendmentRecord is a first-class content-addressed artifact documenting each law_hash transition."
+  },
+  {
+   "id": "AMD-S-02",
+   "public_label": "Amendment record governance (AMD-S-02)",
+   "semantic_family": "amendment-governance",
+   "subsystem": "AMD",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "amendment_model_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase17",
+   "source_refs": [
+    "invariant:AMD-S-02",
+    "file:ugk/invariants.py",
+    "gate:amendment_model_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Amendment-model-at-inception: the DeploymentManifest declares amendment_model in {higher_root, self} at the founding constitutional act, committed in manifest_hash and carried on session_open."
+  },
+  {
+   "id": "AMD-S-03",
+   "public_label": "Amendment record governance (AMD-S-03)",
+   "semantic_family": "amendment-governance",
+   "subsystem": "AMD",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "amendment_admissibility_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase17",
+   "source_refs": [
+    "invariant:AMD-S-03",
+    "file:ugk/invariants.py",
+    "gate:amendment_admissibility_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Amendment admissibility (frame-general): a constitutional-frame transition c_n -> c_{n+1} is ADMITTED iff an AmendmentRecord satisfies, fail-closed: (1) prior frame == c_n frame triad; (2) for EVERY f"
+  },
+  {
+   "id": "CR-S-01",
+   "public_label": "Classified remainders (declared gaps) (CR-S-01)",
+   "semantic_family": "amendment-governance",
+   "subsystem": "CR",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "classified_remainders_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CR-S-01",
+    "file:ugk/invariants.py",
+    "gate:classified_remainders_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "CLASSIFIED_REMAINDERS (CR-01..CR-04) are declared in the kernel: OS layer, Python runtime, SQLite WAL, effect() internals."
+  },
+  {
+   "id": "CR-S-02",
+   "public_label": "Classified remainders (declared gaps) (CR-S-02)",
+   "semantic_family": "amendment-governance",
+   "subsystem": "CR",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "canary_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CR-S-02",
+    "file:ugk/invariants.py",
+    "gate:canary_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "CLASSIFIED_REMAINDERS are inert \u2014 no capability flows from a declared gap."
+  },
+  {
+   "id": "SUCC-S-01",
+   "public_label": "Successor lineage proof",
+   "semantic_family": "amendment-governance",
+   "subsystem": "SUCC",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "successor_lineage_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:SUCC-S-01",
+    "file:ugk/invariants.py",
+    "gate:successor_lineage_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "SuccessorLineage is a cryptographic succession proof."
+  },
+  {
+   "id": "AUDIT-S-01",
+   "public_label": "Read-only audit surface (AUDIT-S-01)",
+   "semantic_family": "audit-observability",
+   "subsystem": "AUDIT",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "audit_session_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase8",
+   "source_refs": [
+    "invariant:AUDIT-S-01",
+    "file:ugk/invariants.py",
+    "gate:audit_session_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "AuditSession is a read-only governed surface."
+  },
+  {
+   "id": "AUDIT-S-02",
+   "public_label": "Read-only audit surface (AUDIT-S-02)",
+   "semantic_family": "audit-observability",
+   "subsystem": "AUDIT",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "legend_archive_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase8",
+   "source_refs": [
+    "invariant:AUDIT-S-02",
+    "file:ugk/invariants.py",
+    "gate:legend_archive_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The legend_archive table in ugk.db contains every LEGEND version by legend_hash."
+  },
+  {
+   "id": "AUDIT-S-03",
+   "public_label": "Read-only audit surface (AUDIT-S-03)",
+   "semantic_family": "audit-observability",
+   "subsystem": "AUDIT",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "receipts_for_warrant_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase8",
+   "source_refs": [
+    "invariant:AUDIT-S-03",
+    "file:ugk/invariants.py",
+    "gate:receipts_for_warrant_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "AuditSession.receipts_for_warrant(warrant_hash) returns a correct, complete list of receipts whose warrant_id equals warrant_hash."
+  },
+  {
+   "id": "CM-DIM-01",
+   "public_label": "Governance status transitions (CM-DIM-01)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "CM",
+   "classification": "ABI_CONFIG",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "dimension_selection_gates",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CM-DIM-01",
+    "file:ugk/invariants.py",
+    "gate:dimension_selection_gates"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Every Dimension in dimensions.py has its current selection within the admissible set and outside the inadmissible set."
+  },
+  {
+   "id": "CM-GS-01",
+   "public_label": "Governance status transitions (CM-GS-01)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "CM",
+   "classification": "ABI_CONFIG",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "status_transition_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CM-GS-01",
+    "file:ugk/invariants.py",
+    "gate:status_transition_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Governance status transitions UNINITIALIZED \u2192 ACTIVE via the founding ceremony."
+  },
+  {
+   "id": "CM-GS-02",
+   "public_label": "Governance status transitions (CM-GS-02)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "CM",
+   "classification": "ABI_CONFIG",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "governor_key_unset_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CM-GS-02",
+    "file:ugk/invariants.py",
+    "gate:governor_key_unset_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The shipped kernel GOVERNOR_PUBKEY_HEX is the unset sentinel 'GOVERNOR_KEY_UNSET__RUN_GENESIS_CEREMONY'."
+  },
+  {
+   "id": "CM-OP-01",
+   "public_label": "Governance status transitions (CM-OP-01)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "CM",
+   "classification": "ABI_CONFIG",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "three_tier_jurisdiction_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CM-OP-01",
+    "file:ugk/invariants.py",
+    "gate:three_tier_jurisdiction_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Three-tier op jurisdiction is enforced by execute()."
+  },
+  {
+   "id": "CM-S-01",
+   "public_label": "Governance status transitions (CM-S-01)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "CM",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "authority_model_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase15",
+   "source_refs": [
+    "invariant:CM-S-01",
+    "file:ugk/invariants.py",
+    "gate:authority_model_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "AuthorityModel is content-addressed."
+  },
+  {
+   "id": "CM-S-02",
+   "public_label": "Governance status transitions (CM-S-02)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "CM",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "authority_model_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase15",
+   "source_refs": [
+    "invariant:CM-S-02",
+    "file:ugk/invariants.py",
+    "gate:authority_model_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "When require_gate=True, APPLICATION_OPs without a gate raise KernelInternalOp before tier check."
+  },
+  {
+   "id": "CM-S-03",
+   "public_label": "Governance status transitions (CM-S-03)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "CM",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "authority_model_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase15",
+   "source_refs": [
+    "invariant:CM-S-03",
+    "file:ugk/invariants.py",
+    "gate:authority_model_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "When require_warrant=True, execute() without warrant_basis raises KernelInternalOp."
+  },
+  {
+   "id": "CM-S-04",
+   "public_label": "Governance status transitions (CM-S-04)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "CM",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "model_receipt_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase15",
+   "source_refs": [
+    "invariant:CM-S-04",
+    "file:ugk/invariants.py",
+    "gate:model_receipt_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "AuthorityModel sealed to authority_model_archive at set_authority_model() time."
+  },
+  {
+   "id": "EH-S-01",
+   "public_label": "Typed exception hierarchy (EH-S-01)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "EH",
+   "classification": "ABI_CONFIG",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "error_codes_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:EH-S-01",
+    "file:ugk/invariants.py",
+    "gate:error_codes_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Typed exception hierarchy: KernelInternalOp (Tier 0 external call), GovernanceNotFounded (Tier 2 in UNINITIALIZED), UndeclaredOp (BS-01 violation), GateRefusal (gate returned False)."
+  },
+  {
+   "id": "EH-S-02",
+   "public_label": "Typed exception hierarchy (EH-S-02)",
+   "semantic_family": "configuration-constraint",
+   "subsystem": "EH",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "recovery_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:EH-S-02",
+    "file:ugk/invariants.py",
+    "gate:recovery_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Chain corruption recovery: last_valid_frontier() identifies the receipt_id of the last valid receipt before corruption begins."
+  },
+  {
+   "id": "ALT-I-01",
+   "public_label": "Constitutive probe result (ALT-I-01)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "ALT",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "constitutive_probe_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase16",
+   "source_refs": [
+    "invariant:ALT-I-01",
+    "file:ugk/invariants.py",
+    "gate:constitutive_probe_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "ConstitutiveProbeResult is content-addressed."
+  },
+  {
+   "id": "ALT-I-02",
+   "public_label": "Constitutive probe result (ALT-I-02)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "ALT",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "alt_instance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase16",
+   "source_refs": [
+    "invariant:ALT-I-02",
+    "file:ugk/invariants.py",
+    "gate:alt_instance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "When authority_set supplied to execute(), receipt carries authority_set in parameters."
+  },
+  {
+   "id": "ALT-I-03",
+   "public_label": "Constitutive probe result (ALT-I-03)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "ALT",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "alt_instance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase16",
+   "source_refs": [
+    "invariant:ALT-I-03",
+    "file:ugk/invariants.py",
+    "gate:alt_instance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "When require_scoped_intent=True, only declarations with scope_ref matching session_dkn are active."
+  },
+  {
+   "id": "ALT-I-04",
+   "public_label": "Constitutive probe result (ALT-I-04)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "ALT",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "alt_instance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase16",
+   "source_refs": [
+    "invariant:ALT-I-04",
+    "file:ugk/invariants.py",
+    "gate:alt_instance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "\u03c6(S)=(ceremonial+unprobed APPLICATION_OPs)/(total APPLICATION_OPs)."
+  },
+  {
+   "id": "CGP-S-01",
+   "public_label": "Governance posture (content-addressed) (CGP-S-01)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "CGP",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "posture_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase18",
+   "source_refs": [
+    "invariant:CGP-S-01",
+    "file:ugk/invariants.py",
+    "gate:posture_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "GovernancePosture is content-addressed (posture_hash=SHA-256(canonical_json(body)))."
+  },
+  {
+   "id": "CGP-S-02",
+   "public_label": "Governance posture (content-addressed) (CGP-S-02)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "CGP",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "health_surface_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase18",
+   "source_refs": [
+    "invariant:CGP-S-02",
+    "file:ugk/invariants.py",
+    "gate:health_surface_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "ugk health covers five sub-checks: chain integrity, authority model, posture vector, disjunct coverage, and gate compliance."
+  },
+  {
+   "id": "CGP-S-03",
+   "public_label": "Governance posture (content-addressed) (CGP-S-03)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "CGP",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "health_surface_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase18",
+   "source_refs": [
+    "invariant:CGP-S-03",
+    "file:ugk/invariants.py",
+    "gate:health_surface_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "GATE_GROUP annotation on each gate file classifies it into structural|unit|integration|conformance groups."
+  },
+  {
+   "id": "CHARTER-S-01",
+   "public_label": "Deployment manifest / charter (CHARTER-S-01)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "CHARTER",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "charter_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase20",
+   "source_refs": [
+    "invariant:CHARTER-S-01",
+    "file:ugk/invariants.py",
+    "gate:charter_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "DeploymentManifest is content-addressed."
+  },
+  {
+   "id": "CHARTER-S-02",
+   "public_label": "Deployment manifest / charter (CHARTER-S-02)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "CHARTER",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "charter_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase20",
+   "source_refs": [
+    "invariant:CHARTER-S-02",
+    "file:ugk/invariants.py",
+    "gate:charter_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "ugk charter is the founding constitutional act."
+  },
+  {
+   "id": "DW-S-01",
+   "public_label": "Decision warrant (content-addressed) (DW-S-01)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "DW",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "warrant_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase6",
+   "source_refs": [
+    "invariant:DW-S-01",
+    "file:ugk/invariants.py",
+    "gate:warrant_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "DecisionWarrant is a first-class content-addressed artifact."
+  },
+  {
+   "id": "DW-S-02",
+   "public_label": "Decision warrant (content-addressed) (DW-S-02)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "DW",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "warrant_lineage_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase6",
+   "source_refs": [
+    "invariant:DW-S-02",
+    "file:ugk/invariants.py",
+    "gate:warrant_lineage_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The warrant DAG is acyclic."
+  },
+  {
+   "id": "DW-S-03",
+   "public_label": "Decision warrant (content-addressed) (DW-S-03)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "DW",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "refusal_warrant_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase9",
+   "source_refs": [
+    "invariant:DW-S-03",
+    "file:ugk/invariants.py",
+    "gate:refusal_warrant_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Refusal warrants are produced when gate() returns False and warrant_basis is provided by the caller."
+  },
+  {
+   "id": "SUM-S-01",
+   "public_label": "Session summary",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "SUM",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "session_summary_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase9",
+   "source_refs": [
+    "invariant:SUM-S-01",
+    "file:ugk/invariants.py",
+    "gate:session_summary_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "SessionSummary is produced at close_session() when a WarrantStore is attached."
+  },
+  {
+   "id": "WILL-S-01",
+   "public_label": "Intent declaration (content-addressed) (WILL-S-01)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "WILL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "intent_declaration_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:WILL-S-01",
+    "file:ugk/invariants.py",
+    "gate:intent_declaration_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "IntentDeclaration is content-addressed."
+  },
+  {
+   "id": "WILL-S-02",
+   "public_label": "Intent declaration (content-addressed) (WILL-S-02)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "WILL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "will_checker_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:WILL-S-02",
+    "file:ugk/invariants.py",
+    "gate:will_checker_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "R_int is the least fixpoint of declared ops under admissible production_edges."
+  },
+  {
+   "id": "WILL-S-03",
+   "public_label": "Intent declaration (content-addressed) (WILL-S-03)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "WILL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "will_checker_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:WILL-S-03",
+    "file:ugk/invariants.py",
+    "gate:will_checker_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Coverage is fail-closed when require_intent=True on the kernel."
+  },
+  {
+   "id": "WILL-S-04",
+   "public_label": "Intent declaration (content-addressed) (WILL-S-04)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "WILL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "intent_declaration_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:WILL-S-04",
+    "file:ugk/invariants.py",
+    "gate:intent_declaration_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "IntentRevocation is permanent and unfalsifiable."
+  },
+  {
+   "id": "WILL-S-05",
+   "public_label": "Intent declaration (content-addressed) (WILL-S-05)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "WILL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "intent_receipt_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:WILL-S-05",
+    "file:ugk/invariants.py",
+    "gate:intent_receipt_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "When WillChecker.covers() returns COVERED, receipt.intent_ref records the covering IntentDeclaration hash."
+  },
+  {
+   "id": "WILL-S-06",
+   "public_label": "Intent declaration (content-addressed) (WILL-S-06)",
+   "semantic_family": "content-addressed-artifact",
+   "subsystem": "WILL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "will_coverage_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:WILL-S-06",
+    "file:ugk/invariants.py",
+    "gate:will_coverage_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Coverage is computed BEFORE the success receipt is written, which is BEFORE the effect executes (NBER-1 preserved)."
+  },
+  {
+   "id": "DCAP-S-01",
+   "public_label": "Capability-sufficiency precondition",
+   "semantic_family": "effect-truthfulness",
+   "subsystem": "DCAP",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "admissibility-precondition",
+   "gate": "capability_sufficiency_policy_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "dcap-enforcement-law-leg",
+   "source_refs": [
+    "invariant:DCAP-S-01",
+    "file:ugk/invariants.py",
+    "gate:capability_sufficiency_policy_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "D_cap enforcement -- sibling capability-sufficiency precondition (opt-in, enumerated)."
+  },
+  {
+   "id": "EFFECT-S-01",
+   "public_label": "Effect-trail integrity (EFFECT-S-01)",
+   "semantic_family": "effect-truthfulness",
+   "subsystem": "EFFECT",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "effect_trail_integrity_gate",
+   "effect_class_scope": [
+    "PURE",
+    "STORE_LOCAL",
+    "EXTERNAL_REVERSIBLE",
+    "EXTERNAL_IRREVERSIBLE",
+    "NON_ATOMIC"
+   ],
+   "continuity_status": "stable",
+   "construction_lane": "effect-trail-integrity",
+   "source_refs": [
+    "invariant:EFFECT-S-01",
+    "file:ugk/invariants.py",
+    "gate:effect_trail_integrity_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Effect-trail integrity (marker-era)."
+  },
+  {
+   "id": "EFFECT-S-02",
+   "public_label": "Effect-trail integrity (EFFECT-S-02)",
+   "semantic_family": "effect-truthfulness",
+   "subsystem": "EFFECT",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "effect_trail_integrity_gate",
+   "effect_class_scope": [
+    "PURE",
+    "STORE_LOCAL",
+    "EXTERNAL_REVERSIBLE",
+    "EXTERNAL_IRREVERSIBLE",
+    "NON_ATOMIC"
+   ],
+   "continuity_status": "stable",
+   "construction_lane": "typed-effect-law-leg",
+   "source_refs": [
+    "invariant:EFFECT-S-02",
+    "file:ugk/invariants.py",
+    "gate:effect_trail_integrity_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Typed-column effect-trail integrity (v>=4)."
+  },
+  {
+   "id": "ATLAS-S-01",
+   "public_label": "Invariant dependency-graph integrity (ATLAS-S-01)",
+   "semantic_family": "frame-governance",
+   "subsystem": "ATLAS",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "primitive_dependency_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase10",
+   "source_refs": [
+    "invariant:ATLAS-S-01",
+    "file:ugk/invariants.py",
+    "gate:primitive_dependency_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Every Invariant in INVARIANT_REGISTRY has a valid depends_on tuple whose members are all present in the registry."
+  },
+  {
+   "id": "ATLAS-S-02",
+   "public_label": "Invariant dependency-graph integrity (ATLAS-S-02)",
+   "semantic_family": "frame-governance",
+   "subsystem": "ATLAS",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "compound_capability_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase10",
+   "source_refs": [
+    "invariant:ATLAS-S-02",
+    "file:ugk/invariants.py",
+    "gate:compound_capability_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "compound_capabilities in adr.py maps capability names to frozensets of invariant IDs."
+  },
+  {
+   "id": "ATLAS-S-03",
+   "public_label": "Invariant dependency-graph integrity (ATLAS-S-03)",
+   "semantic_family": "frame-governance",
+   "subsystem": "ATLAS",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "adr_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase10",
+   "source_refs": [
+    "invariant:ATLAS-S-03",
+    "file:ugk/invariants.py",
+    "gate:adr_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "ADR_REGISTRY in adr.py contains at least one ArchitecturalDecision per major design choice."
+  },
+  {
+   "id": "ATLAS-S-04",
+   "public_label": "Invariant dependency-graph integrity (ATLAS-S-04)",
+   "semantic_family": "frame-governance",
+   "subsystem": "ATLAS",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "codex_integrity_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase10",
+   "source_refs": [
+    "invariant:ATLAS-S-04",
+    "file:ugk/invariants.py",
+    "gate:codex_integrity_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "CODEX.md is a projected representation of the semantic atlas."
+  },
+  {
+   "id": "CTR-S-01",
+   "public_label": "Invariant staleness pin (CTR-S-01)",
+   "semantic_family": "frame-governance",
+   "subsystem": "CTR",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "invariant_registry_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CTR-S-01",
+    "file:ugk/invariants.py",
+    "gate:invariant_registry_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The invariant registry (this file) IS the coverage map."
+  },
+  {
+   "id": "CTR-S-07",
+   "public_label": "Invariant staleness pin (CTR-S-07)",
+   "semantic_family": "frame-governance",
+   "subsystem": "CTR",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "staleness_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CTR-S-07",
+    "file:ugk/invariants.py",
+    "gate:staleness_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Staleness gate: a SHA-256 pin of invariants.py content is maintained."
+  },
+  {
+   "id": "LEGEND-S-01",
+   "public_label": "LEGEND constant integrity (LEGEND-S-01)",
+   "semantic_family": "frame-governance",
+   "subsystem": "LEGEND",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "legend_hash_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase6",
+   "source_refs": [
+    "invariant:LEGEND-S-01",
+    "file:ugk/invariants.py",
+    "gate:legend_hash_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The LEGEND constant in binding.py is content-addressed and stable."
+  },
+  {
+   "id": "LEGEND-S-02",
+   "public_label": "LEGEND constant integrity (LEGEND-S-02)",
+   "semantic_family": "frame-governance",
+   "subsystem": "LEGEND",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "compression_roundtrip_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase6",
+   "source_refs": [
+    "invariant:LEGEND-S-02",
+    "file:ugk/invariants.py",
+    "gate:compression_roundtrip_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "store.write(compress=True) stores CSIL integers for op/intent/jurisdiction/confidence fields."
+  },
+  {
+   "id": "LEGEND-S-03",
+   "public_label": "LEGEND constant integrity (LEGEND-S-03)",
+   "semantic_family": "frame-governance",
+   "subsystem": "LEGEND",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "legend_chc_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase6",
+   "source_refs": [
+    "invariant:LEGEND-S-03",
+    "file:ugk/invariants.py",
+    "gate:legend_chc_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "legend_hash appears in the dm_s03 CHC envelope on ACTIVE receipts."
+  },
+  {
+   "id": "LEGEND-S-04",
+   "public_label": "LEGEND constant integrity (LEGEND-S-04)",
+   "semantic_family": "frame-governance",
+   "subsystem": "LEGEND",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "projection_continuity_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase6",
+   "source_refs": [
+    "invariant:LEGEND-S-04",
+    "file:ugk/invariants.py",
+    "gate:projection_continuity_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Every compressed receipt field value has a valid LEGEND_BY_SLUG entry."
+  },
+  {
+   "id": "PED-S-01",
+   "public_label": "Concept-introduction discipline",
+   "semantic_family": "frame-governance",
+   "subsystem": "PED",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "constitution_surface_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase17",
+   "source_refs": [
+    "invariant:PED-S-01",
+    "file:ugk/invariants.py",
+    "gate:constitution_surface_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Every concept introduced into the UGK authority surface must have a LEGEND entry, an invariant or ADR describing its physics, and a ugk explain resolution path."
+  },
+  {
+   "id": "UL-G-01",
+   "public_label": "Grundnorm layer integrity (UL-G-01)",
+   "semantic_family": "frame-governance",
+   "subsystem": "UL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "grundnorm_readonly_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:UL-G-01",
+    "file:ugk/invariants.py",
+    "gate:grundnorm_readonly_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The Grundnorm layer (kernel.py, schema.py, store.py, binding.py, broker.py, invariants.py, dimensions.py) is read-only after installation (file permissions 444)."
+  },
+  {
+   "id": "UL-L-01",
+   "public_label": "Grundnorm layer integrity (UL-L-01)",
+   "semantic_family": "frame-governance",
+   "subsystem": "UL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "liveness_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:UL-L-01",
+    "file:ugk/invariants.py",
+    "gate:liveness_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "All UGK modules import in a single Python process without side effects."
+  },
+  {
+   "id": "UL-S-01",
+   "public_label": "Grundnorm layer integrity (UL-S-01)",
+   "semantic_family": "frame-governance",
+   "subsystem": "UL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "zero_deps_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:UL-S-01",
+    "file:ugk/invariants.py",
+    "gate:zero_deps_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Zero external runtime dependencies."
+  },
+  {
+   "id": "UL-S-02",
+   "public_label": "Grundnorm layer integrity (UL-S-02)",
+   "semantic_family": "frame-governance",
+   "subsystem": "UL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "nber1_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:UL-S-02",
+    "file:ugk/invariants.py",
+    "gate:nber1_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Receipt-before-effect is kernel-enforced at the API level, not convention."
+  },
+  {
+   "id": "UL-S-03",
+   "public_label": "Grundnorm layer integrity (UL-S-03)",
+   "semantic_family": "frame-governance",
+   "subsystem": "UL",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "bs01_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:UL-S-03",
+    "file:ugk/invariants.py",
+    "gate:bs01_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Every op submitted to execute() must be declared in GOVERNANCE_OPS before execution (BS-01)."
+  },
+  {
+   "id": "UL-S-04",
+   "public_label": "Grundnorm layer integrity (UL-S-04)",
+   "semantic_family": "frame-governance",
+   "subsystem": "UL",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "esa_selfcheck_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:UL-S-04",
+    "file:ugk/invariants.py",
+    "gate:esa_selfcheck_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The kernel provides a native ESA self-check (~5 governance-generic capabilities) and a valid 10-axis SRSA vector without any application-layer dependency."
+  },
+  {
+   "id": "CSIL-S-01",
+   "public_label": "Canonical semantic-integer layer (CSIL-S-01)",
+   "semantic_family": "identity-and-vocabulary",
+   "subsystem": "CSIL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "csil_floor_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase19",
+   "source_refs": [
+    "invariant:CSIL-S-01",
+    "file:ugk/invariants.py",
+    "gate:csil_floor_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "APPLICATION_OPs with csil_id>0 in GOVERNANCE_OPS carry op_csil in receipt parameters."
+  },
+  {
+   "id": "CSIL-S-02",
+   "public_label": "Canonical semantic-integer layer (CSIL-S-02)",
+   "semantic_family": "identity-and-vocabulary",
+   "subsystem": "CSIL",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "csil_topology_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase19",
+   "source_refs": [
+    "invariant:CSIL-S-02",
+    "file:ugk/invariants.py",
+    "gate:csil_topology_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The invariant dependency graph (depends_on fields) is the semantic topology over CSIL invariant tier."
+  },
+  {
+   "id": "DKN-S-01",
+   "public_label": "Session DKN identity",
+   "semantic_family": "identity-and-vocabulary",
+   "subsystem": "DKN",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "dkn_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase20",
+   "source_refs": [
+    "invariant:DKN-S-01",
+    "file:ugk/invariants.py",
+    "gate:dkn_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "session_dkn = SHA-256(mosaic_root:phase_code:session_id)."
+  },
+  {
+   "id": "SCOPE-S-01",
+   "public_label": "Provenance scope (SCOPE-S-01)",
+   "semantic_family": "jurisdiction-projection",
+   "subsystem": "SCOPE",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "provenance_scope_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:SCOPE-S-01",
+    "file:ugk/invariants.py",
+    "gate:provenance_scope_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "ProvenanceScope is emitted at session_open and stored in scope_archive table in ugk.db."
+  },
+  {
+   "id": "SCOPE-S-02",
+   "public_label": "Provenance scope (SCOPE-S-02)",
+   "semantic_family": "jurisdiction-projection",
+   "subsystem": "SCOPE",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "scope_archive_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase13",
+   "source_refs": [
+    "invariant:SCOPE-S-02",
+    "file:ugk/invariants.py",
+    "gate:scope_archive_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Replay admissibility: a receipt from a closed session is not admissible as a new-session operation."
+  },
+  {
+   "id": "SRSA-S-01",
+   "public_label": "SRSA jurisdiction vector",
+   "semantic_family": "jurisdiction-projection",
+   "subsystem": "SRSA",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "srsa_vector_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:SRSA-S-01",
+    "file:ugk/invariants.py",
+    "gate:srsa_vector_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "ugk.srsa_vector() returns a valid 10-axis SRSA vector for this kernel instance."
+  },
+  {
+   "id": "SSA-VOCAB-S-01",
+   "public_label": "Governance-generic verb vocabulary",
+   "semantic_family": "jurisdiction-projection",
+   "subsystem": "SSA",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "frame-constraint",
+   "gate": "ssa_vocabulary_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase12",
+   "source_refs": [
+    "invariant:SSA-VOCAB-S-01",
+    "file:ugk/invariants.py",
+    "gate:ssa_vocabulary_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "INTENT_TYPES in core/vocab.py contains exactly 17 governance-generic semantic verbs (Governor-confirmed, Phase 12)."
+  },
+  {
+   "id": "NS-S-01",
+   "public_label": "Namespace ownership projection (NS-S-01)",
+   "semantic_family": "namespace-authority",
+   "subsystem": "NS",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "namespace_governance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase20",
+   "source_refs": [
+    "invariant:NS-S-01",
+    "file:ugk/invariants.py",
+    "gate:namespace_governance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Namespace OWNERSHIP is a deterministic receipt-chain projection: owner_of(name) is derived by folding the receipt chain (namespace_governance.project_owners); the projection is stable/deterministic; t"
+  },
+  {
+   "id": "NS-S-02",
+   "public_label": "Namespace ownership projection (NS-S-02)",
+   "semantic_family": "namespace-authority",
+   "subsystem": "NS",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "namespace_governance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase20",
+   "source_refs": [
+    "invariant:NS-S-02",
+    "file:ugk/invariants.py",
+    "gate:namespace_governance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "namespace_claim and namespace_allocate are DISTINCT receipted transitions and MUST NOT be collapsed into one op (FGA \u00a710)."
+  },
+  {
+   "id": "NS-S-03",
+   "public_label": "Namespace ownership projection (NS-S-03)",
+   "semantic_family": "namespace-authority",
+   "subsystem": "NS",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "namespace_governance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase20",
+   "source_refs": [
+    "invariant:NS-S-03",
+    "file:ugk/invariants.py",
+    "gate:namespace_governance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Allocation conflict policy is REFUSE (fail-closed v0): a colliding allocation \u2014 the SAME canonical name (namespace_governance.canonicalize) by a DIFFERENT authority \u2014 is gate_refused (a gate_refuse re"
+  },
+  {
+   "id": "NS-S-04",
+   "public_label": "Namespace ownership projection (NS-S-04)",
+   "semantic_family": "namespace-authority",
+   "subsystem": "NS",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "namespace_governance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "namespace-2bc",
+   "source_refs": [
+    "invariant:NS-S-04",
+    "file:ugk/invariants.py",
+    "gate:namespace_governance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Namespace ownership-lifecycle operations \u2014 delegation, revocation, invalidation, and supersession \u2014 take effect only when the receipt authority is the current owner of the canonical name."
+  },
+  {
+   "id": "NS-S-05",
+   "public_label": "Namespace ownership projection (NS-S-05)",
+   "semantic_family": "namespace-authority",
+   "subsystem": "NS",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "namespace_governance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "namespace-2bc",
+   "source_refs": [
+    "invariant:NS-S-05",
+    "file:ugk/invariants.py",
+    "gate:namespace_governance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Revocation and invalidation permanently remove a canonical name from ownership under the WILL-S-04 permanence pattern."
+  },
+  {
+   "id": "NS-S-06",
+   "public_label": "Namespace ownership projection (NS-S-06)",
+   "semantic_family": "namespace-authority",
+   "subsystem": "NS",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "receipt-evidence",
+   "gate": "namespace_governance_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "namespace-2bc",
+   "source_refs": [
+    "invariant:NS-S-06",
+    "file:ugk/invariants.py",
+    "gate:namespace_governance_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Adjudication of a contested canonical name is constitutional-Governor-only."
+  },
+  {
+   "id": "CHC-S-01",
+   "public_label": "Receipt commitment-hash binding (CHC-S-01)",
+   "semantic_family": "receipt-chain-integrity",
+   "subsystem": "CHC",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "binding_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CHC-S-01",
+    "file:ugk/invariants.py",
+    "gate:binding_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Every receipt carries the THR-conformant binding structure: per-commitment hashes (H_s, H_c, H_m, and H_j when scope warrants), a binding root H_r = H(DS_r \u2225 id(root_v1) \u2225 root(leaves)) computed as a"
+  },
+  {
+   "id": "CHC-S-02",
+   "public_label": "Receipt commitment-hash binding (CHC-S-02)",
+   "semantic_family": "receipt-chain-integrity",
+   "subsystem": "CHC",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "determinism_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CHC-S-02",
+    "file:ugk/invariants.py",
+    "gate:determinism_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Each c_i canonicalization function (i \u2208 {s, c, m, j}) is deterministic and byte-stable per THR \u00a75: identical typed inputs produce byte-identical H_i."
+  },
+  {
+   "id": "CHC-S-03",
+   "public_label": "Receipt commitment-hash binding (CHC-S-03)",
+   "semantic_family": "receipt-chain-integrity",
+   "subsystem": "CHC",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "nonrepudiation_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:CHC-S-03",
+    "file:ugk/invariants.py",
+    "gate:nonrepudiation_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Per-commitment independence and global nonrepudiation: altering the typed input to any one c_i changes that H_i without changing the others (cryptographic independence, THR \u00a711); altering any leaf cha"
+  },
+  {
+   "id": "CHC-S-04",
+   "public_label": "Receipt commitment-hash binding (CHC-S-04)",
+   "semantic_family": "receipt-chain-integrity",
+   "subsystem": "CHC",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "commitment_minimality_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1-m2",
+   "source_refs": [
+    "invariant:CHC-S-04",
+    "file:ugk/invariants.py",
+    "gate:commitment_minimality_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Commitment Minimality (THR \u00a710.4): the leaf set under H_r contains only facts whose canonicalization input domain is not a subset of any other present leaf's input domain, except for entries explicitl"
+  },
+  {
+   "id": "DM-S-01",
+   "public_label": "Append-only receipt immutability (DM-S-01)",
+   "semantic_family": "receipt-chain-integrity",
+   "subsystem": "DM",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "nonretroactivity_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:DM-S-01",
+    "file:ugk/invariants.py",
+    "gate:nonretroactivity_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Committed receipts cannot be retroactively modified."
+  },
+  {
+   "id": "DM-S-03",
+   "public_label": "Append-only receipt immutability (DM-S-03)",
+   "semantic_family": "receipt-chain-integrity",
+   "subsystem": "DM",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "chain_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:DM-S-03",
+    "file:ugk/invariants.py",
+    "gate:chain_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "All receipts are stream-chained: each receipt's H_c canonicalization input carries the prior receipt's H_r as `parent_H_r`."
+  },
+  {
+   "id": "IEL-S-01",
+   "public_label": "Whole-body receipt integrity",
+   "semantic_family": "receipt-chain-integrity",
+   "subsystem": "IEL",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "receipt_commitment_integrity_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "iel-phase1",
+   "source_refs": [
+    "invariant:IEL-S-01",
+    "file:ugk/invariants.py",
+    "gate:receipt_commitment_integrity_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Receipt-body integrity is runtime-verifiable and enforced over the WHOLE committed body."
+  },
+  {
+   "id": "PERSIST-S-01",
+   "public_label": "Receipt-store chain hydration",
+   "semantic_family": "receipt-chain-integrity",
+   "subsystem": "PERSIST",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "verification-claim",
+   "gate": "persistence_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase7",
+   "source_refs": [
+    "invariant:PERSIST-S-01",
+    "file:ugk/invariants.py",
+    "gate:persistence_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "UGKReceiptStore opened on an existing database hydrates _prior_hash from the chain tip (latest semantic_hash), not from genesis."
+  },
+  {
+   "id": "BRIDGE-BINDING",
+   "public_label": "BRIDGE surface-validity binding",
+   "semantic_family": "terminal-outcome",
+   "subsystem": "BRIDGE",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "admissibility-precondition",
+   "gate": "bridge_binding_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "bridge-binding-law",
+   "source_refs": [
+    "invariant:BRIDGE-BINDING",
+    "file:ugk/invariants.py",
+    "gate:bridge_binding_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "BRIDGE surface-validity binding (CK-BRIDGE Stage 3, law leg; UGK-BODY-v8)."
+  },
+  {
+   "id": "DEFER-S-01",
+   "public_label": "DEFER continuation lifecycle",
+   "semantic_family": "terminal-outcome",
+   "subsystem": "DEFER",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "outcome-correspondence",
+   "gate": "defer_lifecycle_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "defer-continuation-lifecycle",
+   "source_refs": [
+    "invariant:DEFER-S-01",
+    "file:ugk/invariants.py",
+    "gate:defer_lifecycle_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The DEFER continuation lifecycle."
+  },
+  {
+   "id": "ESA-S-01",
+   "public_label": "Gate-refusal constitutive outcome",
+   "semantic_family": "terminal-outcome",
+   "subsystem": "ESA",
+   "classification": "MIXED",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "outcome-correspondence",
+   "gate": "refusal_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:ESA-S-01",
+    "file:ugk/invariants.py",
+    "gate:refusal_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "GateRefusal is a first-class constitutive outcome."
+  },
+  {
+   "id": "GK-S-01",
+   "public_label": "Fail-closed admission gating (GK-S-01)",
+   "semantic_family": "terminal-outcome",
+   "subsystem": "GK",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "admissibility-precondition",
+   "gate": "enforcement_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:GK-S-01",
+    "file:ugk/invariants.py",
+    "gate:enforcement_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Admission is blocking and fail-closed."
+  },
+  {
+   "id": "GK-S-02",
+   "public_label": "Fail-closed admission gating (GK-S-02)",
+   "semantic_family": "terminal-outcome",
+   "subsystem": "GK",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "admissibility-precondition",
+   "gate": "admission_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "phase1",
+   "source_refs": [
+    "invariant:GK-S-02",
+    "file:ugk/invariants.py",
+    "gate:admission_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "The W/G/E reactor fires in fixed order: gate() before effect(), gate_admit receipt before the op receipt, op receipt before effect()."
+  },
+  {
+   "id": "RECON-S-01",
+   "public_label": "Verified-grade reconciliation",
+   "semantic_family": "terminal-outcome",
+   "subsystem": "RECON",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "outcome-correspondence",
+   "gate": "external_irreversible_pilot_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "verified-grade-law-leg",
+   "source_refs": [
+    "invariant:RECON-S-01",
+    "file:ugk/invariants.py",
+    "gate:external_irreversible_pilot_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Verified-grade reconciliation self-containment (opt-in)."
+  },
+  {
+   "id": "TO-S-01",
+   "public_label": "Terminal-outcome correspondence",
+   "semantic_family": "terminal-outcome",
+   "subsystem": "TO",
+   "classification": "DOMAIN_PHYSICS",
+   "frame_role": "law-backed-invariant",
+   "authority_role": "outcome-correspondence",
+   "gate": "terminal_outcome_commit_gate",
+   "effect_class_scope": [],
+   "continuity_status": "stable",
+   "construction_lane": "terminal-outcome-correspondence",
+   "source_refs": [
+    "invariant:TO-S-01",
+    "file:ugk/invariants.py",
+    "gate:terminal_outcome_commit_gate"
+   ],
+   "last_verified_release": "r169",
+   "explanation_summary": "Where a receipt commits a terminal-outcome projection under UGK-BODY version >= 2, the committed projection tuple \u2014 terminal_outcome, terminal_outcome_model_id, and terminal_outcome_reason \u2014 must corr"
+  }
+ ]
+}

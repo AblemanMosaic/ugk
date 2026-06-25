@@ -1,0 +1,984 @@
+{
+ "schema": "ugk-glossary/1",
+ "generated_from": "GLOSSARY.json",
+ "verified_against_release": "r165",
+ "note": "Generated term index. Navigation, not law. The cited sources are authority. verified_against_release is the release this glossary was authored and verified against; the index is frame-stationary across later releases unless a term changes (the freshness gate proves generated==source at the current release).",
+ "terms": [
+  {
+   "term": "ADMIT",
+   "aliases": [],
+   "category": "terminal outcome",
+   "status": "live",
+   "short_definition": "Operation admitted; effect permitted under receipt.",
+   "authoritative_sources": [
+    "invariant:TO-S-01",
+    "codex:terminal-outcome-lattice"
+   ],
+   "implementation_surfaces": [
+    "ugk/fga/terminal_outcome.py"
+   ],
+   "related_invariants": [
+    "TO-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Read ADMIT as permit-with-receipt, not silent success.",
+   "not_this": "Not an unconditional success flag.",
+   "related_terms": [
+    "terminal-outcome-lattice",
+    "REFUSE"
+   ]
+  },
+  {
+   "term": "amendment-ledger",
+   "aliases": [],
+   "category": "release/continuity concept",
+   "status": "live",
+   "short_definition": "Append-only Ed25519-signed record of frame-moving amendments.",
+   "authoritative_sources": [
+    "invariant:AMD-S-03",
+    "codex:amendment-ledger",
+    "gate:amendment_admissibility_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/amendment.py",
+    "ugk/amendment_ledger.json",
+    "ugk/conformance/amendment_admissibility_gate.py"
+   ],
+   "related_invariants": [
+    "AMD-S-01",
+    "AMD-S-02",
+    "AMD-S-03"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat law/schema/legend moves as amendment-governed unless proven frame-stationary.",
+   "not_this": "Constitutional history, not constitutional law; not a mutable changelog.",
+   "related_terms": [
+    "Proof Model B",
+    "release-certification-stack"
+   ]
+  },
+  {
+   "term": "B1/B2/B3/B4",
+   "aliases": [],
+   "category": "release/continuity concept",
+   "status": "live",
+   "short_definition": "The four behavioral-continuity legs (shape, identity, attestation, declared-surface confinement).",
+   "authoritative_sources": [
+    "doc:ROADMAP_G6.md",
+    "codex:proof-model-b"
+   ],
+   "implementation_surfaces": [
+    "tools/grbsa/proof_model_b.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r135",
+   "last_verified_release": "r165",
+   "agent_rule": "B4 confines the declared surface; a real undeclared diff must fail B4.",
+   "not_this": "Not byte-identity (that is a demoted shortcut clause).",
+   "related_terms": [
+    "Proof Model B",
+    "GRBSA"
+   ]
+  },
+  {
+   "term": "BRIDGE",
+   "aliases": [],
+   "category": "terminal outcome",
+   "status": "live",
+   "short_definition": "Native opt-in permit-with-audit for an attested regime crossing.",
+   "authoritative_sources": [
+    "invariant:TO-S-01",
+    "invariant:BRIDGE-BINDING",
+    "codex:native-bridge",
+    "gate:bridge_emission_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/kernel.py",
+    "ugk/storage/store.py",
+    "ugk/conformance/bridge_emission_gate.py"
+   ],
+   "related_invariants": [
+    "TO-S-01",
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r162",
+   "last_verified_release": "r165",
+   "agent_rule": "Claim BRIDGE only via explicit emit_bridge with valid BRIDGE-BINDING at emit.",
+   "not_this": "Not spontaneous; the kernel never auto-bridges.",
+   "related_terms": [
+    "BRIDGE-BINDING",
+    "BridgeRecord",
+    "terminal-outcome-lattice"
+   ]
+  },
+  {
+   "term": "BRIDGE-BINDING",
+   "aliases": [],
+   "category": "bridge concept",
+   "status": "live",
+   "short_definition": "Resolver-parameterized validity rule for committed v8 BridgeRecord surfaces.",
+   "authoritative_sources": [
+    "invariant:BRIDGE-BINDING",
+    "codex:bridge-binding",
+    "gate:bridge_binding_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/bridge_binding.py",
+    "ugk/conformance/bridge_binding_gate.py"
+   ],
+   "related_invariants": [
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r161",
+   "last_verified_release": "r165",
+   "agent_rule": "Keep MCIR representation and SMH evidence read-only; resolver success is not authority.",
+   "not_this": "Not embedded MCIR/SMH authority; not kernel-owned resolution.",
+   "related_terms": [
+    "BRIDGE",
+    "BridgeRecord",
+    "resolver-parameterized verification",
+    "MCIR",
+    "SMH"
+   ]
+  },
+  {
+   "term": "BridgeRecord",
+   "aliases": [],
+   "category": "bridge concept",
+   "status": "live",
+   "short_definition": "Committed v8 bridge surface (source/target/transform/evidence refs) validated by BRIDGE-BINDING.",
+   "authoritative_sources": [
+    "invariant:BRIDGE-BINDING",
+    "codex:native-bridge",
+    "gate:bridge_surface_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/store.py",
+    "ugk/storage/bridge_binding.py",
+    "ugk/conformance/bridge_surface_gate.py"
+   ],
+   "related_invariants": [
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r160",
+   "last_verified_release": "r165",
+   "agent_rule": "Require a complete, verifying surface before BRIDGE; missing fields fail closed.",
+   "not_this": "Not embedded MCIR/SMH bodies; references only.",
+   "related_terms": [
+    "BRIDGE",
+    "BRIDGE-BINDING",
+    "MCIR",
+    "SMH"
+   ]
+  },
+  {
+   "term": "CK profile",
+   "aliases": [],
+   "category": "CK concept",
+   "status": "design-only",
+   "short_definition": "Portable CK profile packaging (spec/schemas/vectors/verifier).",
+   "authoritative_sources": [
+    "release:r165",
+    "doc:UGK_SCAVENGE_INTEGRATION_ROADMAP.md"
+   ],
+   "implementation_surfaces": [
+    "UGK_SCAVENGE_INTEGRATION_ROADMAP.md"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r165",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat as design-only roadmap; not implemented in-tree at this release.",
+   "not_this": "Not an implemented package; not law.",
+   "related_terms": [
+    "CK-CANON",
+    "MCIR"
+   ]
+  },
+  {
+   "term": "CK-CANON",
+   "aliases": [
+    "CK canon"
+   ],
+   "category": "CK concept",
+   "status": "live",
+   "short_definition": "Canonicalization discipline for governance input (e.g. float ban at the protocol boundary).",
+   "authoritative_sources": [
+    "codex:ck-canon-float-ban",
+    "release:r156"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/store.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r156",
+   "last_verified_release": "r165",
+   "agent_rule": "Pass ints/strings/decimals, not floats; floats refuse with ProtocolError.",
+   "not_this": "Not a serialization convenience; not optional.",
+   "related_terms": [
+    "CK profile",
+    "ck-canon-float-ban"
+   ]
+  },
+  {
+   "term": "classified-remainders",
+   "aliases": [],
+   "category": "integrity concept",
+   "status": "posture",
+   "short_definition": "Explicitly declared governance gaps surfaced as constitutional posture.",
+   "authoritative_sources": [
+    "codex:classified-remainders",
+    "file:ugk/__init__.py"
+   ],
+   "implementation_surfaces": [
+    "ugk/__init__.py",
+    "ugk/conformance/classified_remainders_gate.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat as honest gap declarations that bound scope claims.",
+   "not_this": "Not a defect list to silently ignore; not a guarantee of completeness.",
+   "related_terms": [
+    "NON_ATOMIC",
+    "verifier-boundary"
+   ]
+  },
+  {
+   "term": "ContinuationRecord",
+   "aliases": [],
+   "category": "defer/continuation concept",
+   "status": "live",
+   "short_definition": "Append-only record carrying DEFER lifecycle state.",
+   "authoritative_sources": [
+    "invariant:DEFER-S-01",
+    "codex:defer-lifecycle",
+    "gate:continuation_record_surface_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/store.py",
+    "ugk/conformance/continuation_record_surface_gate.py"
+   ],
+   "related_invariants": [
+    "DEFER-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r149",
+   "last_verified_release": "r165",
+   "agent_rule": "Read continuation_state as later receipt markers, not mutable state.",
+   "not_this": "Not mutable scheduling state.",
+   "related_terms": [
+    "DEFER",
+    "terminal-outcome-lattice"
+   ]
+  },
+  {
+   "term": "CRISIS",
+   "aliases": [],
+   "category": "terminal outcome",
+   "status": "reserved",
+   "short_definition": "Reserved terminal outcome; not emittable at this release.",
+   "authoritative_sources": [
+    "invariant:TO-S-01",
+    "codex:terminal-outcome-lattice"
+   ],
+   "implementation_surfaces": [
+    "ugk/fga/terminal_outcome.py"
+   ],
+   "related_invariants": [
+    "TO-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat CRISIS as reserved/non-emittable; do not claim it is live.",
+   "not_this": "Not a live outcome; not emittable.",
+   "related_terms": [
+    "terminal-outcome-lattice"
+   ]
+  },
+  {
+   "term": "DEFER",
+   "aliases": [
+    "deferral"
+   ],
+   "category": "terminal outcome",
+   "status": "live",
+   "short_definition": "Deferred outcome backed by a HELD continuation record.",
+   "authoritative_sources": [
+    "invariant:DEFER-S-01",
+    "invariant:TO-S-01",
+    "codex:defer-lifecycle"
+   ],
+   "implementation_surfaces": [
+    "ugk/kernel.py",
+    "ugk/storage/store.py",
+    "ugk/conformance/defer_lifecycle_gate.py"
+   ],
+   "related_invariants": [
+    "DEFER-S-01",
+    "TO-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r149",
+   "last_verified_release": "r165",
+   "agent_rule": "Emit DEFER only with a valid HELD continuation; resume re-enters execute().",
+   "not_this": "Not scheduling and not a stored-decision replay.",
+   "related_terms": [
+    "DEFER",
+    "ContinuationRecord",
+    "terminal-outcome-lattice"
+   ]
+  },
+  {
+   "term": "EffectAtomicity",
+   "aliases": [],
+   "category": "effect concept",
+   "status": "live",
+   "short_definition": "Class-relative discipline for effect-bearing operations and trails.",
+   "authoritative_sources": [
+    "invariant:EFFECT-S-01",
+    "codex:effect-atomicity"
+   ],
+   "implementation_surfaces": [
+    "ugk/kernel.py",
+    "ugk/integrity/external_irreversible.py",
+    "ugk/integrity/external_reversible.py"
+   ],
+   "related_invariants": [
+    "EFFECT-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Require a declared effect class and class-appropriate trail before asserting integrity.",
+   "not_this": "Not a blanket reversibility guarantee.",
+   "related_terms": [
+    "PURE",
+    "STORE_LOCAL",
+    "EXTERNAL_REVERSIBLE",
+    "EXTERNAL_IRREVERSIBLE",
+    "NON_ATOMIC"
+   ]
+  },
+  {
+   "term": "EXTERNAL_IRREVERSIBLE",
+   "aliases": [],
+   "category": "effect concept",
+   "status": "live",
+   "short_definition": "Effect class: irreversible external effect via prepare/commit trail.",
+   "authoritative_sources": [
+    "invariant:EFFECT-S-01",
+    "codex:effect-atomicity"
+   ],
+   "implementation_surfaces": [
+    "ugk/integrity/external_irreversible.py"
+   ],
+   "related_invariants": [
+    "EFFECT-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Track by truthful prepare/commit trail; orphan PREPARE and TerminalWriteExhausted signal exhaustion, not receipt.",
+   "not_this": "Not reversible; no rollback claim.",
+   "related_terms": [
+    "EffectAtomicity",
+    "EXTERNAL_REVERSIBLE"
+   ]
+  },
+  {
+   "term": "EXTERNAL_REVERSIBLE",
+   "aliases": [],
+   "category": "effect concept",
+   "status": "live",
+   "short_definition": "Effect class: external effect with compensation/saga reversal.",
+   "authoritative_sources": [
+    "invariant:EFFECT-S-01",
+    "codex:effect-atomicity",
+    "gate:external_reversible_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/integrity/external_reversible.py",
+    "ugk/conformance/external_reversible_gate.py"
+   ],
+   "related_invariants": [
+    "EFFECT-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Provide forward+compensation; reversal is by compensation, not rollback claim.",
+   "not_this": "Not EXTERNAL_IRREVERSIBLE.",
+   "related_terms": [
+    "EffectAtomicity",
+    "EXTERNAL_IRREVERSIBLE"
+   ]
+  },
+  {
+   "term": "generated CODEX",
+   "aliases": [
+    "CODEX.md"
+   ],
+   "category": "generated artifact",
+   "status": "generated",
+   "short_definition": "Deterministic constitutional projection of invariants.py; machine-owned leaf.",
+   "authoritative_sources": [
+    "file:ugk/codex/CODEX.md",
+    "codex:generated-codex-boundary",
+    "gate:codex_freshness_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/codex/CODEX.md",
+    "codex_gen.py",
+    "ugk/conformance/codex_freshness_gate.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Never hand-edit; it is generated and gate-pinned (and truncates statements).",
+   "not_this": "Not narrative doctrine; not the human navigation map.",
+   "related_terms": [
+    "Implementation Codex",
+    "integrity-basis"
+   ]
+  },
+  {
+   "term": "GRBSA",
+   "aliases": [],
+   "category": "verifier concept",
+   "status": "live",
+   "short_definition": "Gate/Refusal Behavioral Substrate Adapter forest backing continuity proofs.",
+   "authoritative_sources": [
+    "doc:ROADMAP_G6.md",
+    "gate:g6_aggregate_validation_gate"
+   ],
+   "implementation_surfaces": [
+    "tools/grbsa/"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r135",
+   "last_verified_release": "r165",
+   "agent_rule": "Read GRBSA gate output as bounded behavioral proof, not global correctness.",
+   "not_this": "Not the runtime kernel; not authority.",
+   "related_terms": [
+    "Proof Model B",
+    "verifier-boundary"
+   ]
+  },
+  {
+   "term": "Implementation Codex",
+   "aliases": [
+    "IMPLEMENTATION_CODEX.md"
+   ],
+   "category": "human-authored navigation artifact",
+   "status": "live",
+   "short_definition": "Human-authored, source-cited, claim-ceilinged navigation map of named subsystems.",
+   "authoritative_sources": [
+    "file:IMPLEMENTATION_CODEX.md",
+    "gate:implementation_codex_freshness_gate"
+   ],
+   "implementation_surfaces": [
+    "IMPLEMENTATION_CODEX.md",
+    "ugk/implementation_codex.py",
+    "ugk/conformance/implementation_codex_freshness_gate.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r165",
+   "last_verified_release": "r165",
+   "agent_rule": "Use concept entries to navigate; obey each entry's claim_ceiling.",
+   "not_this": "Not law; not the generated CODEX; not a second source of truth.",
+   "related_terms": [
+    "generated CODEX",
+    "SKILL.md",
+    "GLOSSARY.md"
+   ]
+  },
+  {
+   "term": "integrity-basis",
+   "aliases": [],
+   "category": "integrity concept",
+   "status": "live",
+   "short_definition": "Trust basis is cryptographic, not file mode; packaging strips modes.",
+   "authoritative_sources": [
+    "doc:INTEGRITY_BASIS.md",
+    "codex:integrity-basis"
+   ],
+   "implementation_surfaces": [
+    "INTEGRITY_BASIS.md"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Verify by hash + verify_release.py, not on-disk permissions.",
+   "not_this": "File mode is not the trust basis.",
+   "related_terms": [
+    "grundnorm-layer",
+    "release-certification-stack"
+   ]
+  },
+  {
+   "term": "MCIR",
+   "aliases": [],
+   "category": "MCIR concept",
+   "status": "bounded-external",
+   "short_definition": "Machine-canonical intermediate representation; bounded read-only reference, never authority.",
+   "authoritative_sources": [
+    "codex:mcir-smh-resolver-boundary",
+    "invariant:BRIDGE-BINDING"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/bridge_binding.py"
+   ],
+   "related_invariants": [
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r161",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat MCIR as representation/reference, never embedded authority.",
+   "not_this": "Not embedded runtime authority; UGK imports neither MCIR nor SMH.",
+   "related_terms": [
+    "SMH",
+    "BRIDGE-BINDING",
+    "resolver-parameterized verification"
+   ]
+  },
+  {
+   "term": "MCIR structural identity",
+   "aliases": [],
+   "category": "MCIR concept",
+   "status": "bounded-external",
+   "short_definition": "MCIR's canonical structural identity used by bridge resolvers.",
+   "authoritative_sources": [
+    "codex:mcir-smh-resolver-boundary",
+    "invariant:BRIDGE-BINDING"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/bridge_binding.py"
+   ],
+   "related_invariants": [
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r161",
+   "last_verified_release": "r165",
+   "agent_rule": "Use only via injected read-only resolver; never as authority.",
+   "not_this": "Not UGK law; not embedded.",
+   "related_terms": [
+    "MCIR",
+    "BRIDGE-BINDING"
+   ]
+  },
+  {
+   "term": "NON_ATOMIC",
+   "aliases": [],
+   "category": "effect concept",
+   "status": "posture",
+   "short_definition": "Effect class: explicit transitional posture, not an atomicity claim.",
+   "authoritative_sources": [
+    "invariant:EFFECT-S-01",
+    "codex:effect-atomicity"
+   ],
+   "implementation_surfaces": [
+    "ugk/kernel.py"
+   ],
+   "related_invariants": [
+    "EFFECT-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Read NON_ATOMIC as an honest gap declaration, not a guarantee.",
+   "not_this": "Not an atomicity guarantee.",
+   "related_terms": [
+    "EffectAtomicity",
+    "classified-remainders"
+   ]
+  },
+  {
+   "term": "Proof Model B",
+   "aliases": [
+    "ContinuityB",
+    "behavioral continuity"
+   ],
+   "category": "release/continuity concept",
+   "status": "live",
+   "short_definition": "Behavioral continuity proof model for release-to-release transitions.",
+   "authoritative_sources": [
+    "doc:ROADMAP_G6.md",
+    "codex:proof-model-b"
+   ],
+   "implementation_surfaces": [
+    "tools/grbsa/proof_model_b.py",
+    "tools/grbsa/g6_aggregate_validation_gate.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r135",
+   "last_verified_release": "r165",
+   "agent_rule": "Use it to bound continuity claims, especially B4 declared-surface drift.",
+   "not_this": "Not runtime law; not a substitute for conformance gates.",
+   "related_terms": [
+    "B1/B2/B3/B4",
+    "GRBSA",
+    "amendment-ledger"
+   ]
+  },
+  {
+   "term": "PURE",
+   "aliases": [],
+   "category": "effect concept",
+   "status": "live",
+   "short_definition": "Effect class: no external or persistent effect.",
+   "authoritative_sources": [
+    "invariant:EFFECT-S-01",
+    "codex:effect-atomicity"
+   ],
+   "implementation_surfaces": [
+    "ugk/kernel.py"
+   ],
+   "related_invariants": [
+    "EFFECT-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Use PURE only when nothing is persisted or externalized.",
+   "not_this": "Not STORE_LOCAL; not external.",
+   "related_terms": [
+    "EffectAtomicity"
+   ]
+  },
+  {
+   "term": "REFUSE",
+   "aliases": [],
+   "category": "terminal outcome",
+   "status": "live",
+   "short_definition": "Operation refused at a gate; fail-closed.",
+   "authoritative_sources": [
+    "invariant:TO-S-01",
+    "gate:refusal_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/fga/terminal_outcome.py",
+    "ugk/conformance/refusal_gate.py"
+   ],
+   "related_invariants": [
+    "TO-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat REFUSE as a governed outcome with a reason, not an error to retry blindly.",
+   "not_this": "Not an exception/crash; not locality-refuse by itself.",
+   "related_terms": [
+    "terminal-outcome-lattice",
+    "STRUCTURAL_ERROR"
+   ]
+  },
+  {
+   "term": "resolver-parameterized verification",
+   "aliases": [],
+   "category": "bridge concept",
+   "status": "live",
+   "short_definition": "Verification pattern injecting read-only resolvers (kernel-free, deterministic).",
+   "authoritative_sources": [
+    "invariant:BRIDGE-BINDING",
+    "codex:bridge-binding"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/bridge_binding.py"
+   ],
+   "related_invariants": [
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r161",
+   "last_verified_release": "r165",
+   "agent_rule": "Inject resolvers read-only; resolver exceptions fail closed to False.",
+   "not_this": "Not embedded authority; not kernel-owned semantics.",
+   "related_terms": [
+    "BRIDGE-BINDING",
+    "MCIR",
+    "SMH"
+   ]
+  },
+  {
+   "term": "rho-integration-posture",
+   "aliases": [
+    "rho"
+   ],
+   "category": "rho concept",
+   "status": "dormant",
+   "short_definition": "Temporal-PROV layer integrated add-only, dormant/opt-in, with no kernel wiring.",
+   "authoritative_sources": [
+    "codex:rho-integration-posture",
+    "file:ugk/rho_hardened.py"
+   ],
+   "implementation_surfaces": [
+    "ugk/rho_hardened.py",
+    "ugk/conformance/rho_fixtures.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat rho as present but dormant; do not assume it is wired into the kernel.",
+   "not_this": "Not active; not kernel-wired; not authority.",
+   "related_terms": [
+    "classified-remainders",
+    "integrity-basis"
+   ]
+  },
+  {
+   "term": "SKILL.md",
+   "aliases": [],
+   "category": "human-authored navigation artifact",
+   "status": "live",
+   "short_definition": "Short procedural agent boot/operating guide; routes to deeper docs.",
+   "authoritative_sources": [
+    "file:SKILL.md"
+   ],
+   "implementation_surfaces": [
+    "SKILL.md"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Use for boot + routing; follow its pointers for depth.",
+   "not_this": "Not a theory document; not a complete substrate map.",
+   "related_terms": [
+    "Implementation Codex",
+    "GLOSSARY.md",
+    "ugk explain"
+   ]
+  },
+  {
+   "term": "SMH",
+   "aliases": [],
+   "category": "SMH concept",
+   "status": "bounded-external",
+   "short_definition": "Evidence layer resolved read-only and non-authoritatively for bridge verification.",
+   "authoritative_sources": [
+    "codex:mcir-smh-resolver-boundary",
+    "invariant:BRIDGE-BINDING"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/bridge_binding.py"
+   ],
+   "related_invariants": [
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r161",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat SMH evidence as read-only; never authority.",
+   "not_this": "Not embedded authority; not a UGK import.",
+   "related_terms": [
+    "MCIR",
+    "BRIDGE-BINDING",
+    "SMH projection",
+    "SMH archive identity"
+   ]
+  },
+  {
+   "term": "SMH archive identity",
+   "aliases": [],
+   "category": "SMH concept",
+   "status": "bounded-external",
+   "short_definition": "Archive-level SMH identity distinct from a projection.",
+   "authoritative_sources": [
+    "codex:mcir-smh-resolver-boundary"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/bridge_binding.py"
+   ],
+   "related_invariants": [
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r161",
+   "last_verified_release": "r165",
+   "agent_rule": "Distinguish archive identity from projection; both read-only.",
+   "not_this": "Not a projection; not authority.",
+   "related_terms": [
+    "SMH",
+    "SMH projection"
+   ]
+  },
+  {
+   "term": "SMH projection",
+   "aliases": [],
+   "category": "SMH concept",
+   "status": "bounded-external",
+   "short_definition": "A projected SMH view consumed read-only by resolvers.",
+   "authoritative_sources": [
+    "codex:mcir-smh-resolver-boundary"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/bridge_binding.py"
+   ],
+   "related_invariants": [
+    "BRIDGE-BINDING"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r161",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat as read-only projected evidence.",
+   "not_this": "Not authoritative; not archive identity.",
+   "related_terms": [
+    "SMH",
+    "SMH archive identity"
+   ]
+  },
+  {
+   "term": "STORE_LOCAL",
+   "aliases": [],
+   "category": "effect concept",
+   "status": "live",
+   "short_definition": "Effect class: local persistent receipt store write only.",
+   "authoritative_sources": [
+    "invariant:EFFECT-S-01",
+    "codex:effect-atomicity"
+   ],
+   "implementation_surfaces": [
+    "ugk/storage/store.py"
+   ],
+   "related_invariants": [
+    "EFFECT-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Use for local-store writes with no external effect.",
+   "not_this": "Not an external effect.",
+   "related_terms": [
+    "EffectAtomicity"
+   ]
+  },
+  {
+   "term": "STRUCTURAL_ERROR",
+   "aliases": [],
+   "category": "terminal outcome",
+   "status": "live",
+   "short_definition": "Protocol/structural fault committed as a typed terminal outcome.",
+   "authoritative_sources": [
+    "invariant:TO-S-01",
+    "gate:structural_error_receipt_gate"
+   ],
+   "implementation_surfaces": [
+    "ugk/fga/terminal_outcome.py",
+    "ugk/conformance/structural_error_receipt_gate.py"
+   ],
+   "related_invariants": [
+    "TO-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "Distinguish STRUCTURAL_ERROR (protocol fault) from REFUSE (gate decision).",
+   "not_this": "Not a refusal and not a normal exception.",
+   "related_terms": [
+    "terminal-outcome-lattice",
+    "REFUSE"
+   ]
+  },
+  {
+   "term": "terminal-outcome-lattice",
+   "aliases": [],
+   "category": "terminal outcome",
+   "status": "live",
+   "short_definition": "Closed terminal-outcome vocabulary committed on governed receipts.",
+   "authoritative_sources": [
+    "invariant:TO-S-01",
+    "codex:terminal-outcome-lattice"
+   ],
+   "implementation_surfaces": [
+    "ugk/fga/terminal_outcome.py",
+    "ugk/storage/store.py"
+   ],
+   "related_invariants": [
+    "TO-S-01"
+   ],
+   "related_adrs": [],
+   "introduced_release": "r149",
+   "last_verified_release": "r165",
+   "agent_rule": "Treat the outcome set as closed; never invent an outcome.",
+   "not_this": "Not a free-form status string.",
+   "related_terms": [
+    "ADMIT",
+    "REFUSE",
+    "STRUCTURAL_ERROR",
+    "DEFER",
+    "BRIDGE",
+    "CRISIS"
+   ]
+  },
+  {
+   "term": "ugk explain",
+   "aliases": [],
+   "category": "verifier concept",
+   "status": "live",
+   "short_definition": "Self-describing CLI resolving invariants, gates, and CSIL integers on demand.",
+   "authoritative_sources": [
+    "file:ugk/cli.py"
+   ],
+   "implementation_surfaces": [
+    "ugk/cli.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r17a",
+   "last_verified_release": "r165",
+   "agent_rule": "For any unknown invariant/gate/CSIL integer, run `ugk explain <id>`.",
+   "not_this": "Not a doc generator; not authority \u2014 it reports from source.",
+   "related_terms": [
+    "SKILL.md",
+    "Implementation Codex",
+    "GLOSSARY.md"
+   ]
+  },
+  {
+   "term": "verifier-boundary",
+   "aliases": [],
+   "category": "verifier concept",
+   "status": "live",
+   "short_definition": "Boundary defining what verification may prove vs what stays out of verifier authority.",
+   "authoritative_sources": [
+    "doc:VERIFIER_BOUNDARY.md",
+    "codex:verifier-boundary"
+   ],
+   "implementation_surfaces": [
+    "VERIFIER_BOUNDARY.md",
+    "tools/grbsa/verifier.py",
+    "tools/release/certify_release.py"
+   ],
+   "related_invariants": [],
+   "related_adrs": [],
+   "introduced_release": "r135",
+   "last_verified_release": "r165",
+   "agent_rule": "Phrase verifier results as bounded proofs, not production readiness.",
+   "not_this": "Not a grant of runtime authority to tooling.",
+   "related_terms": [
+    "GRBSA",
+    "release-certification-stack"
+   ]
+  }
+ ]
+}

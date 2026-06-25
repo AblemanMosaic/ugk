@@ -1,0 +1,30 @@
+{
+  "migration_receipt_version": "g5.v1",
+  "from_runner": "ugk.kernel.GovernanceKernel.execute(op='crp_evidence') \u2014 direct W/G/E reactor call",
+  "to_continuation": "grbsa_runtime.ExecutionAdapter (OBSERVES the receipt execute() writes; mints none)",
+  "risk_class": "HIGHEST \u2014 authority-bearing, founded kernel, real durable-chain receipts",
+  "success_semantics": "execution: domain match + gate admit + not failed + >=1 chain receipt written. Gate refusal is first-class non-success (valid receipt, not error).",
+  "equivalence_basis": "Receipt Sufficiency Principle: same admit verdict + same failed flag + same receipts-written (lineage shape) (NOT receipt-hash identity)",
+  "invariants_held": {
+    "ugk_byte_identical": true,
+    "kernel_py_unmodified": true,
+    "adapter_originated_authority": false,
+    "adapter_founded_kernel": false,
+    "adapter_minted_receipt": false
+  },
+  "evidence": {
+    "direct_receipts_written": 2,
+    "adapter_receipts_observed": 2,
+    "equivalent": true,
+    "nber1_owned_by_execute_receipt_before_effect": true,
+    "negative_controls": [
+      "unfounded Tier-2 op refused identically",
+      "gate refusal first-class",
+      "authority-origination refused",
+      "posture op refused",
+      "zero-receipt not success"
+    ]
+  },
+  "strangler_status": "legacy execute() REMAINS the ONLY execution path and source of truth; execution is NOT made routable even in the eligible sense without a separate later ratification (authority involved)",
+  "note": "receipt-hash identity intentionally NOT asserted (chain hash binds ts)"
+}

@@ -1,0 +1,19 @@
+{
+  "migration_receipt_version": "g4a.v1",
+  "from_runner": "ugk.conformance.determinism_gate.run",
+  "to_continuation": "grbsa_runtime.GateAdapter(gate_id='determinism', normalizer=verdict_tuple)",
+  "result_shape": "(ok: bool, detail: str) \u2014 DIFFERENT from a1's GateResult; proves GateAdapter generality",
+  "equivalence_basis": "Receipt Sufficiency Principle: admissibility + success semantics + lineage shape (NOT receipt-hash identity)",
+  "equivalence_relation": "unique check names + same count + identical (name,ok) mapping + identical verdict; detail excluded",
+  "evidence": {
+    "legacy_passed": true,
+    "adapter_passed": true,
+    "equivalent": true,
+    "nber1_receipt_before_effect": true,
+    "synthetic_check": [
+      "determinism:verdict"
+    ]
+  },
+  "strangler_status": "legacy runner REMAINS source of truth; nothing retired; determinism gate ELIGIBLE (not required) for adapter routing only after G4a passes from clean extraction",
+  "note": "receipt-hash identity intentionally NOT asserted (chain hash binds ts)"
+}

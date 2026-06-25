@@ -1,0 +1,120 @@
+{
+  "grbsa_core_mapping_version": "g1.v1",
+  "note": "Semantic spec ONLY. These cores are projections over EXISTING fields; G1 introduces no new runtime object. Each source entry names a real field verified present in the current tree.",
+  "receipt_core": {
+    "_doc": "Closed 6-field core: WHY was the continuation admissible.",
+    "fields": {
+      "proposal": {
+        "sources": [
+          "ugk.storage.store.Receipt.op",
+          "ugk.storage.store.Receipt.parameters",
+          "ugk.scale.oracle.Receipt.op",
+          "ugk.scale.oracle.Receipt.agent",
+          "ugk.scale.oracle.Receipt.session"
+        ]
+      },
+      "criteria": {
+        "sources": [
+          "ugk.storage.store.Receipt.id_c_s",
+          "ugk.storage.store.Receipt.id_c_c",
+          "ugk.storage.store.Receipt.id_c_m",
+          "ugk.storage.store.Receipt.id_c_j"
+        ]
+      },
+      "evaluation": {
+        "sources": [
+          "ugk.storage.store.Receipt.h_s",
+          "ugk.storage.store.Receipt.h_c",
+          "ugk.storage.store.Receipt.h_m",
+          "ugk.storage.store.Receipt.h_j",
+          "ugk.storage.store.Receipt.h_r"
+        ]
+      },
+      "authority": {
+        "sources": [
+          "ugk.storage.store.Receipt.authority",
+          "ugk.storage.store.Receipt.warrant_id",
+          "ugk.storage.store.Receipt.law_hash"
+        ]
+      },
+      "outcome": {
+        "sources": [
+          "ugk.storage.store.Receipt.failed",
+          "ugk.storage.store.Receipt.mode"
+        ]
+      },
+      "lineage": {
+        "sources": [
+          "ugk.storage.store.Receipt.parent_h_r",
+          "ugk.scale.oracle.Receipt.pos",
+          "ugk.scale.oracle.Receipt.prior_hash",
+          "ugk.scale.oracle.Receipt.produces_effects"
+        ]
+      }
+    }
+  },
+  "envelope_core": {
+    "_doc": "Closed 5-field core: WHAT happened. Structurally symmetric with receipt_core; substrate-owned.",
+    "fields": {
+      "status": {
+        "sources": [
+          "ugk.testing.headless_runner.ScenarioResult.passed",
+          "ugk.storage.store.Receipt.failed"
+        ]
+      },
+      "evidence_refs": {
+        "sources": [
+          "ugk.testing.headless_runner.ScenarioResult.checkpoint_hash",
+          "ugk.testing.headless_runner.BatchResult.checkpoint_hashes"
+        ]
+      },
+      "timing": {
+        "sources": [
+          "ugk.testing.headless_runner.ScenarioResult.timing_ms"
+        ]
+      },
+      "result_hash": {
+        "sources": [
+          "ugk.testing.headless_runner.ScenarioResult.stream_hash",
+          "ugk.testing.headless_runner.BatchResult.final_stream_hash"
+        ]
+      },
+      "lineage": {
+        "sources": [
+          "ugk.testing.headless_runner.ScenarioResult.receipt_delta",
+          "ugk.testing.headless_runner.BatchResult.total_receipt_delta"
+        ]
+      }
+    }
+  },
+  "extension_seam": {
+    "receipt_extensions": [
+      "ExecutionReceipt",
+      "GateReceipt",
+      "ProjectionReceipt",
+      "ExplainReceipt",
+      "AuditReceipt",
+      "BenchmarkReceipt",
+      "MigrationReceipt"
+    ],
+    "envelope_extensions": [
+      "GateResultEnvelope",
+      "ProjectionResultEnvelope",
+      "ExplainResultEnvelope",
+      "ExecutionResultEnvelope",
+      "AuditResultEnvelope",
+      "BenchmarkResultEnvelope",
+      "MigrationResultEnvelope"
+    ],
+    "rule": "Domain data attaches ONLY as a keyed extension on a core. Cores are closed."
+  },
+  "success_semantics": {
+    "rule": "Success semantics is NOT a field in any core or extension. It is a domain predicate applied OVER receipt+envelope.",
+    "examples": {
+      "Gate": "anti-vacuity",
+      "Projection": "fidelity",
+      "Explain": "non-invention",
+      "Execution": "effect-under-authority"
+    }
+  }
+}

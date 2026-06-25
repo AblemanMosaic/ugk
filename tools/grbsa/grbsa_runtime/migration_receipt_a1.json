@@ -1,0 +1,38 @@
+{
+  "migration_receipt_version": "g3.v1",
+  "from_runner": "ugk.conformance.a1_conservativity_gate.run_gate",
+  "to_continuation": "grbsa_runtime.GateAdapter(gate_id='a1_conservativity')",
+  "equivalence_basis": "Receipt Sufficiency Principle: admissibility + success semantics + lineage shape (NOT receipt-hash identity)",
+  "equivalence_relation": "unique check names + same count + identical (name,ok) mapping + identical .passed; detail strings excluded",
+  "evidence": {
+    "legacy": {
+      "passed": true,
+      "mapping": {
+        "law_hash unmoved": true,
+        "legend_hash unmoved": true,
+        "id_c_* labels unmoved": true,
+        "CANONICALIZATION_DOMAINS unmoved": true,
+        "leaf hashes byte-identical (2 fixtures x 5 leaves)": true,
+        "unknown canonicalization version fails closed": true,
+        "legacy fixtures remain single-authority (v1)": true
+      }
+    },
+    "adapter": {
+      "passed": true,
+      "mapping": {
+        "law_hash unmoved": true,
+        "legend_hash unmoved": true,
+        "id_c_* labels unmoved": true,
+        "CANONICALIZATION_DOMAINS unmoved": true,
+        "leaf hashes byte-identical (2 fixtures x 5 leaves)": true,
+        "unknown canonicalization version fails closed": true,
+        "legacy fixtures remain single-authority (v1)": true
+      }
+    },
+    "equivalent": true,
+    "nber1_receipt_before_effect": true,
+    "check_count": 7
+  },
+  "strangler_status": "legacy runner REMAINS source of truth; nothing retired; a1 ELIGIBLE (not required) for adapter routing only after this gate passes from clean extraction",
+  "note": "receipt-hash identity intentionally NOT asserted (chain hash binds ts; Receipt Identity Principle)"
+}

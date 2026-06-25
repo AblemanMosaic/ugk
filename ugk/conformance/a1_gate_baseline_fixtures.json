@@ -1,0 +1,91 @@
+{
+ "fx_basic": {
+  "h_c": "0839792894a0f125fe40732ee691f616642750f5740fc6d6bedfd46a4f482c7a",
+  "h_j": "bfbe25921c82d8c380f1f2886357b35df499cc83bf039f0a7149ed3461050d2f",
+  "h_m": "35cea4b0cdc902ae634a1bbb5094a44cb38c5ca8422b5a62b161b53255acfb3f",
+  "h_r": "b7e6e9546ea9022caed35d8b9e80f94979830473675c850d2ff6d1be77424ba3",
+  "h_s": "d8c9136d087db0b47dfd3d57a661fca4b0c1aa72322b2bddc4ed4afa07597619",
+  "inputs": {
+   "c": {
+    "authority_chain": [
+     "gov"
+    ],
+    "capabilities": [],
+    "freshness": {},
+    "parent_H_r": "0000000000000000000000000000000000000000000000000000000000000000",
+    "policy_id": "p1",
+    "warrant_basis": [
+     "w1"
+    ]
+   },
+   "j": {
+    "authority_key": "ak",
+    "mosaic_root": "mr",
+    "phase_code": "ph",
+    "session_id": "s"
+   },
+   "m": {
+    "intent": "i",
+    "intent_ref": "r",
+    "legend_hash": "L",
+    "semantic_lineage": [],
+    "semantic_regime_id": "sigma_0"
+   },
+   "s": {
+    "inputs": {
+     "x": 1
+    },
+    "op_name": "op_a"
+   }
+  }
+ },
+ "fx_single_auth2": {
+  "h_c": "4db4a80ea1764cea3757a50d754d7d6f3989453b87dd0de3082706c0a763be1c",
+  "h_j": "7890346f1fac210c549e0dba21da200bca2b5747c85b531777ce4dbdef21a330",
+  "h_m": "2455c268d06c001a54eaeb29cde13396ba599fbfa79df6e367b37e6b98f9d573",
+  "h_r": "a63120aef826a3cd90d284f1e18b308ffaa56d13d83351250ba1057fbf64f65f",
+  "h_s": "8c89d2d0231a0284e1bbbc92ffa8381b750ea644d35afad69306f5e35d19a5b2",
+  "inputs": {
+   "c": {
+    "authority_chain": [
+     "system"
+    ],
+    "capabilities": [
+     "read"
+    ],
+    "freshness": {
+     "e": 1
+    },
+    "parent_H_r": "abababababababababababababababababababababababababababababababab",
+    "policy_id": "p2",
+    "warrant_basis": [
+     "w2"
+    ]
+   },
+   "j": {
+    "authority_key": "ak2",
+    "mosaic_root": "mr2",
+    "phase_code": "ph2",
+    "session_id": "s2"
+   },
+   "m": {
+    "intent": "i2",
+    "intent_ref": "r2",
+    "legend_hash": "L2",
+    "semantic_lineage": [
+     "a"
+    ],
+    "semantic_regime_id": "sigma_0"
+   },
+   "s": {
+    "inputs": {
+     "y": [
+      1,
+      2
+     ]
+    },
+    "op_name": "op_b"
+   }
+  }
+ }
+}

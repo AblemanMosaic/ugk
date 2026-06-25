@@ -1,0 +1,21 @@
+{
+  "migration_receipt_version": "g4c.v2",
+  "from_runner": "ugk.projections non-invention+completeness (reconstructed in-lane from explain+patterns+domain_mappings; validated by an import-clean bounded fixture (no gate-script execution))",
+  "to_continuation": "grbsa_runtime.ExplainAdapter (success semantics = NON-INVENTION + object-level COMPLETENESS + non-vacuity)",
+  "rule": "explain may omit, explain may rephrase, explain may NOT invent",
+  "success_semantics": "non-invention + object-level completeness + >=1 corpus object",
+  "equivalence_basis": "Receipt Sufficiency Principle: identical invention-violation set + identical corpus coverage + identical overall verdict (NOT receipt-hash identity)",
+  "reuse": "r28: ExplainAdapter sources from IMPORT-CLEAN ugk.projections.{explain,patterns,domain_mappings}; executes NO gate script. Reconstruction validated by an import-clean bounded fixture (G4c), no gate-script execution.",
+  "evidence": {
+    "corpus_objects": 12,
+    "honest_invention_violations": 0,
+    "honest_covered": 12,
+    "honest_missing": 0,
+    "adapter_passed": true,
+    "equivalent": true,
+    "nber1_receipt_before_effect": true
+  },
+  "completeness_grain": "object-level (within-object omission allowed)",
+  "strangler_status": "legacy 5b gate REMAINS source of truth; nothing retired",
+  "note": "receipt-hash identity intentionally NOT asserted; r28 de-tangled (no gate-script execution on adapter path)"
+}

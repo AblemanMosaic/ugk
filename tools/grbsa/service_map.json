@@ -1,0 +1,51 @@
+{
+  "grbsa_service_map_version": "g2.v1",
+  "note": "Spec-only naming layer over existing ugk/scale machinery. G2 routes no work, adds no ugk/ object. Each symbol is verified present in the current tree by the gate (handles methods, dataclass fields, and module constants).",
+  "services": {
+    "scheduling_bounded_execution": {
+      "symbols": ["ugk.scale.scheduler.GovernedScheduler.schedule", "ugk.scale.scheduler.GovernedScheduler.independence_set"],
+      "doc": "Independent-set + priority-within-set + capacity/backpressure refusal (bounded execution)."
+    },
+    "progress_events": {
+      "symbols": ["ugk.scale.scheduler.I5Log.emit", "ugk.scale.scheduler.SCALE_OPS"],
+      "doc": "Scheduler control operations emitted over the CLOSED SCALE_OPS vocabulary."
+    },
+    "timeout_handling": {
+      "symbols": ["ugk.scale.scheduler.GovernedScheduler.schedule"],
+      "doc": "G2 mapping (ratified Q1): 'timeout handling' = the existing bounded-execution / backpressure refusal path. WALL-CLOCK TIMEOUT IS NOT YET A SEPARATE SERVICE and is NOT invented here; a distinct wall-clock timeout would be a later, separately-authorized addition and must not leak time into receipt determinism (Receipt Identity Principle)."
+    },
+    "evidence_capture": {
+      "symbols": ["ugk.scale.scheduler.I5Log.why", "ugk.scale.scheduler.GovernedScheduler.reconstruct_why"],
+      "doc": "Reconstruct the decision trail for a candidate from receipts alone ('answer why from the log')."
+    },
+    "result_hashing": {
+      "symbols": ["ugk.scale.oracle.Receipt.rhash", "ugk.scale.scheduler.I5Receipt.rhash"],
+      "doc": "Receipt hash minted at chain append (scale.Receipt.rhash is a dataclass field; I5Receipt.rhash() is the method form)."
+    },
+    "receipt_emission": {
+      "symbols": ["ugk.scale.oracle.CommitLane.commit_and_effect", "ugk.scale.oracle.Chain.append"],
+      "doc": "NBER-1: receipt appended to the chain BEFORE the effect runs."
+    },
+    "result_envelope_assembly": {
+      "symbols": ["ugk.scale.oracle.CommitLane.commit_and_effect"],
+      "doc": "commit_and_effect returns (receipt, effect_result); the effect_result is the 'what happened' envelope payload, distinct from the receipt."
+    },
+    "lineage_tracking": {
+      "symbols": ["ugk.scale.oracle.Chain.tip", "ugk.scale.oracle.Chain.append", "ugk.scale.oracle.Receipt.prior_hash", "ugk.scale.oracle.Receipt.pos", "ugk.scale.oracle.Receipt.produces_effects"],
+      "doc": "Append-only chain: tip, prior_hash link, canonical position, produced effects."
+    },
+    "summary_verdict_reporting": {
+      "symbols": ["ugk.scale.scheduler.GovernedScheduler.schedule", "ugk.scale.scheduler.I5Log.all"],
+      "doc": "schedule() returns the committed (cand_id, rhash) list; I5Log.all() is the full decision log."
+    }
+  },
+  "authority_boundary": {
+    "rule": "Named services SCHEDULE and OBSERVE only. No named service is a posture/authority op; the emitted-ops vocabulary is exactly the existing closed SCALE_OPS. Being named grants the substrate no constitutional authority.",
+    "posture_op_set_symbol": "ugk.scale.oracle.POSTURE_OPS",
+    "emitted_ops_symbol": "ugk.scale.scheduler.SCALE_OPS"
+  },
+  "nber1_site": {
+    "symbol": "ugk.scale.oracle.CommitLane.commit_and_effect",
+    "rule": "chain.append (receipt durable) MUST occur before effect_fn (effect). G2 records this existing ordering; it does not implement it."
+  }
+}

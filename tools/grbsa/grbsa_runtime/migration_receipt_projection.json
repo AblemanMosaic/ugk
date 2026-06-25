@@ -1,0 +1,23 @@
+{
+  "migration_receipt_version": "g4b.v2",
+  "from_runner": "ugk.projections fidelity (reconstructed in-lane from generate+hash; validated by an import-clean bounded fixture (no gate-script execution))",
+  "to_continuation": "grbsa_runtime.ProjectionAdapter (success semantics = FIDELITY)",
+  "success_semantics": "fidelity: no content_hash drift + every per-artifact fidelity_ok + >=1 artifact",
+  "equivalence_basis": "Receipt Sufficiency Principle: identical content_hash + identical per-artifact verdicts + overall verdict (NOT receipt-hash identity)",
+  "reuse": "r28: ProjectionAdapter sources from IMPORT-CLEAN ugk.projections.{generate,hash}; executes NO gate script. Reconstruction validated by an import-clean bounded fixture (G4b), no gate-script execution.",
+  "evidence": {
+    "content_hash": "09a63ebefe96dddaa88d454c2767ec200f98d6ef393ccdc89c75547a8a3b623b",
+    "legacy_per_artifact": {
+      "patterns.generated.md": true,
+      "domain_mappings.generated.md": true
+    },
+    "adapter_per_artifact": {
+      "patterns.generated.md": true,
+      "domain_mappings.generated.md": true
+    },
+    "equivalent": true,
+    "nber1_receipt_before_effect": true
+  },
+  "strangler_status": "legacy fidelity gate REMAINS source of truth; nothing retired",
+  "note": "receipt-hash identity intentionally NOT asserted; r28 de-tangled (no gate-script execution on adapter path)"
+}

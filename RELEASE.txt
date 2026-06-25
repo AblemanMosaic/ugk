@@ -1,0 +1,31 @@
+UGK v0.1.0 — Universal Governance Kernel (neutral substrate release)
+
+release:           r171  (DOCS INDEX (D2) — generated, stdlib-only documentation index for discoverability. FRAME-STATIONARY: law 1a205e27, schema 82d02279, legend db3c177d, codex c1702d61 unchanged; ledger 27; registry 87. Adds docs_index_gen.py (deterministic stdlib-only generator, --check) producing docs/index.md (a navigable map of all 41 UGK documents: root *.md + docs/**, auto-discovered, grouped Start-here / Project / docs subdirs / release-notes, each linking to the authoritative file) + ugk/conformance/docs_index_gate.py (NEW gate; 118->119) proving generated==source, every link resolves, and every in-scope doc is represented. README gains a pointer to docs/index.md. The index is GENERATED, not vendored, and freshness-gated - no hand-maintained doc site, no committed HTML build, consistent with the generated-and-gated discipline since r166. NO PyPI upload and NO __init__/API-surface change in this lane (both deferred by Governor). The only ugk/ diff vs r170 is the new gate + its registration (verification surface). r170->r171 is a BEHAVIORAL continuity link (verification surface only).)  |  built: 2026-06-24T00:00:00Z
+
+frame (FRAME-STATIONARY docs release — law/schema/legend/codex unchanged; ledger unchanged):
+ledger:            27   [no amendment record — frame-stationary]
+invariants_pin:    1a205e274aa396b4045de83d729c10170d45b40be26c016a9fd914ff88dd2e65   (law STATIONARY)
+LEGEND_HASH:       db3c177d45ebac6c5b6d775ba292ebe41edadd0dca32b939ddbfbdaa212488e7   (legend STATIONARY)
+schema_pin:        82d02279c39d5fa82d6bb18a2a12b0f85cc5210a93502d827a9f89c570327c99   (schema STATIONARY)
+amendment_pin:     972552e8eb5e2482b3659cefcc0cf288f8ff74522753a8cd6b4dc77f7e0a8e3d   (record 27 — unchanged)
+codex_hash:        c1702d610f39a3e2cf168c97bfa01f518babb507034fdf4387ad9e8baacd6657  (codex STATIONARY)
+body_regime:       UGK-BODY-v7 live / v8 bridge (UNCHANGED)
+gates:             119  (adds docs_index_gate; 118 -> 119)
+
+WHAT THIS RELEASE CHANGES (r171 — docs index D2; frame-stationary)
+
+  IN-ugk VERIFICATION surface (the entire r171 ugk/ diff vs r170):
+    ugk/conformance/docs_index_gate.py - NEW: docs/index.md generated==source; links resolve; all docs represented.
+    ugk/conformance/run_gates_batch.py - registers the gate (118 -> 119).
+
+  OUT-of-ugk (docs / generator — non-runtime):
+    docs_index_gen.py (stdlib-only generator), docs/index.md (generated), README pointer; also corrects two wrong acronym glosses in the README continuity table (DKN: "Dimensional Knowledge Namespace" -> "Distributed Knowledge Network"; CSH: "Constitutional State Hash" -> "Constitutional Semantic Hash") and corrects the DKN session_dkn formula in that table to match DKN-S-01/ADR-14 (mosaic_root:phase_code:session_id, WHO×WHAT×WHICH, colon separator) at source in readme_gen.py; also re-stamps 21 IMPLEMENTATION_CODEX entries last_verified_release r168 -> r171 (frame-stationary re-verification required by the codex freshness gate 2-release rule). RELEASE.txt,
+    continuity files.
+
+  RUNTIME STATIONARY: ugk/ runtime spine BYTE-IDENTICAL to r170. No invariant/ID/schema change.
+  Generated-not-vendored: no docs site committed; the index is the only generated doc artifact added.
+
+  B4 DECLARED-SURFACES (== r171 ugk/ diff vs r170, EXACT): ugk/conformance/docs_index_gate.py,
+  ugk/conformance/run_gates_batch.py. (substrate_surface EMPTY; codex_surface EMPTY — frame stationary.)
+
+  Verify release:  python verify_release.py

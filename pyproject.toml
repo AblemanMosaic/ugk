@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ugk"
+version = "0.1.0"
+description = "Universal Governance Kernel — self-certifying constitutional governance substrate"
+keywords = ["constitutional-computing", "governance", "receipts", "provenance", "audit", "admissibility", "fail-closed", "software-assurance", "governance-kernel"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Security",
+    "Topic :: System :: Logging",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+authors = [
+    { name = "Ableman Constitutional Systems", email = "ableman.research@gmail.com" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+ugk = "ugk.cli:main"
+ugk-gates = "ugk.conformance.run_gates_batch:main"
+
+[project.urls]
+Homepage = "https://github.com/AblemanMosaic/ugk"
+Repository = "https://github.com/AblemanMosaic/ugk"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ugk*"]
+
+[tool.setuptools.package-data]
+ugk = ["**/*.json", "**/*.txt", "**/*.md", "codex/**/*"]
